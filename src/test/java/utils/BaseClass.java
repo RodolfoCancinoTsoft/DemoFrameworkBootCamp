@@ -4,6 +4,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -27,6 +30,26 @@ public class BaseClass {
 
     public void cargarPagina(String url){
         this.driver.get(url);
+    }
+
+    public WebDriver conexionBrowser(String browser, String propertyDriver, String rutaDriver){
+        switch (browser){
+            case "CHROME":
+                System.setProperty(propertyDriver,rutaDriver);
+                this.driver = new ChromeDriver();
+                return this.driver;
+            case "EDGE":
+                System.setProperty(propertyDriver,rutaDriver);
+                this.driver = new EdgeDriver();
+                return this.driver;
+            case "FIREFOX":
+                System.setProperty(propertyDriver,rutaDriver);
+                this.driver = new FirefoxDriver();
+                return this.driver;
+            default:
+                this.driver = null;
+                return this.driver;
+        }
     }
 
     public void scrollElementoWeb(By localizador){
