@@ -8,6 +8,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BaseClass {
@@ -17,7 +18,18 @@ public class BaseClass {
 
     protected WebDriverWait wait;
 
+    protected Select select;
 
+    //getter an seter
+
+
+    public WebDriver getDriver() {
+        return driver;
+    }
+
+    public void setDriver(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public BaseClass(WebDriver driver) {
         this.driver = driver;
@@ -83,12 +95,12 @@ public class BaseClass {
         this.driver.findElement(localizador).click();
     }
 
-    public void obtenerTexto(WebElement elemento){
-        elemento.getText();
+    public String obtenerTexto(WebElement elemento){
+        return elemento.getText();
     }
 
-    public void obtenerTexto(By localizador){
-        this.driver.findElement(localizador).getText();
+    public String obtenerTexto(By localizador){
+        return this.driver.findElement(localizador).getText();
     }
 
     public void submitFormulario(By localizador){
@@ -105,5 +117,11 @@ public class BaseClass {
 
     public void maximizarPagina(){
         driver.manage().window().maximize();
+    }
+
+    //metod lista encontar
+    public void selecionMesNacimiento(WebElement elemento, String texto){
+        select = new Select(elemento);
+        select.selectByVisibleText(texto);
     }
 }
