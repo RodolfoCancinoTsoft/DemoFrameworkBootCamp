@@ -7,10 +7,7 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import pages.BuscarPage;
-import pages.HomePage;
-import pages.IniciarSesionPage;
-import pages.RegisterPage;
+import pages.*;
 
 public class CPs {
     //Atributos
@@ -20,6 +17,10 @@ public class CPs {
 
     private WebDriverWait wait;
 
+    private FacePage facePage;
+    private ApplePage applePage;
+    private GooglePage googlePage;
+    private PhonePage phonePage;
     private HomePage homePage;
     private RegisterPage registerPage;
     private WebDriver driver;
@@ -32,11 +33,16 @@ public class CPs {
     public void preparacionTests(){
 
         buscarPage = new BuscarPage(driver);
-        iniciarSesionPage = new IniciarSesionPage(driver);
+
 
         homePage = new HomePage(driver);
         homePage.conexionBrowser(browser,propertyDriver,urlDriver);
         registerPage = new RegisterPage(homePage.getDriver());
+        iniciarSesionPage = new IniciarSesionPage(homePage.getDriver());
+        facePage = new FacePage(iniciarSesionPage.getDriver());
+        applePage = new ApplePage(iniciarSesionPage.getDriver());
+        googlePage = new GooglePage(iniciarSesionPage.getDriver());
+        phonePage =new PhonePage(iniciarSesionPage.getDriver());
 
         homePage.cargarPagina(url);
         homePage.maximizarPagina();
@@ -68,31 +74,36 @@ public class CPs {
 
     public void CP007_Inicio_Seccion_Facebook_Xpath(){
 
-        homePage.iniciarSesion();
-        Assert.assertEquals("Iniciar sesión en Facebook",homePage.obtenerTituloFacebook());
+        homePage.irAIniciarSesion();
+        iniciarSesionPage.iniciarSessionPorFacebook();
+
+        Assert.assertEquals("Iniciar sesión en Facebook",facePage.obtenerTituloFacebook());
 
     }
     @Test
 
     public void CP008_Inicio_Seccion_Apple_Xpath(){
-        homePage.iniciarSesionApple();
-        Assert.assertEquals("Usa tu ID de Apple para iniciar sesión en Spotify.",homePage.obtenerTituloApple());
+        homePage.irAIniciarSesion();
+        iniciarSesionPage.irAIniciarSesionApple();
+        Assert.assertEquals("Usa tu ID de Apple para iniciar sesión en Spotify.",applePage.obtenerTituloApple());
 
     }
 
     @Test
 
     public void CP009_Inicio_Seccion_Google_Xpath(){
-        homePage.iniciarSesionGoogle();
-        Assert.assertEquals("Iniciar sesión con Google",homePage.ObtenerTituloGoogle());
+        homePage.irAIniciarSesion();
+        iniciarSesionPage.irAIniciarSesionGoogle();
+        Assert.assertEquals("Iniciar sesión con Google",googlePage.ObtenerTituloGoogle());
 
     }
 
     @Test
 
     public void CP010_Inicio_Seccion_Telefono_Xpath(){
-        homePage.iniciarSessionTelefono();
-        Assert.assertEquals("Introducir número de teléfono",homePage.obtenerTituloTelefono());
+        homePage.irAIniciarSesion();
+        iniciarSesionPage.irAIniciarSessionTelefono();
+        Assert.assertEquals("Introducir número de teléfono",phonePage.obtenerTituloTelefono());
     }
 
 

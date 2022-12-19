@@ -20,7 +20,7 @@ public class HomePage extends BaseClass {
 
     //localizadores de iniciar session con Facebook
     By localizadorBtnIniciarSesion = By.xpath("//span[contains(text(),'Iniciar sesión')]");
-    By localizadorBtnEntarConFacebook = By.xpath("//button[@data-testid='facebook-login']");
+
 
     public void irARegistrarse(){
         click(esperarAElementoWeb(locatorBtnRegistrate));
@@ -36,51 +36,9 @@ public class HomePage extends BaseClass {
     public String obtenerTituloCaratulaAlbum(){
          return obtenerTexto(obtenerElementoHijo(esperarAElementoWeb(localizadorResultadoPorGrupo),localizadorTituloCaratula));
     }
-    public void iniciarSesion(){
+    public void irAIniciarSesion(){
         click(esperarAElementoWeb(localizadorBtnIniciarSesion));
-        click(esperarAElementoWeb(localizadorBtnEntarConFacebook));
+
     }
-
-    By localizadorTextoFacebook = By.xpath("//div[contains(text(),'Iniciar sesión en Facebook')]");
-    public String obtenerTituloFacebook(){
-        return obtenerTexto(esperarAElementoWeb(localizadorTextoFacebook));
-    }
-
-    By localisadorBtnEntarConApple = By.xpath("//button[@data-testid='apple-login']");
-    By localizadorTituloApple = By.xpath("//h1[@class='si-container-title tk-intro  ']");
-
-    public void iniciarSesionApple(){
-        click(esperarAElementoWeb(localizadorBtnIniciarSesion));
-        click(esperarAElementoWeb(localisadorBtnEntarConApple));
-    }
-    public String obtenerTituloApple(){
-        return obtenerTexto(esperarAElementoWeb(localizadorTituloApple));
-    }
-
-
-    By localizadorBtnGoogle = By.xpath("//button[@data-testid='google-login']");
-    By localizadorTituloGoogle = By.xpath("//div[contains(text(),'Iniciar sesión con Google')]");
-
-
-    public void iniciarSesionGoogle(){
-        click(esperarAElementoWeb(localizadorBtnIniciarSesion));
-        click(esperarAElementoWeb(localizadorBtnGoogle));
-    }
-
-    public String ObtenerTituloGoogle(){
-        return obtenerTexto(esperarAElementoWeb(localizadorTituloGoogle));
-    }
-
-
-    By localizadorBtnTelefono = By.xpath("//button[@data-testid='phone-login']");
-    By localizadorTituloTelefono = By.xpath("//p[contains(text(),'Introducir número de teléfono')]");
-    public void iniciarSessionTelefono(){
-        click(esperarAElementoWeb(localizadorBtnIniciarSesion));
-        click(esperarAElementoWeb(localizadorBtnTelefono));
-    }
-    public String obtenerTituloTelefono(){
-        return obtenerTexto(esperarAElementoWeb(localizadorTituloTelefono));
-    }
-
 
 }
