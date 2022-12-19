@@ -84,6 +84,7 @@ public class BaseClass {
 
     public WebElement esperarAElementoWeb(By localizador){
         wait = new WebDriverWait(this.driver,20);
+
         return wait.until(ExpectedConditions.presenceOfElementLocated(localizador));
     }
 
@@ -127,5 +128,10 @@ public class BaseClass {
 
     public void cerrarBrowser(){
         this.driver.quit();
+    }
+
+    public WebElement obtenerElementoHijo(WebElement elementoPadre, By localizadorElementoHijo){
+        esperaXSegundos(2000);
+        return elementoPadre.findElement(localizadorElementoHijo);
     }
 }
