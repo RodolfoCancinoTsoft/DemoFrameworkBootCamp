@@ -27,7 +27,7 @@ public class DataDriven {
 
         //Se intenta instanciar el objeto de tipo file
         try {
-            file = new FileInputStream("C:\\Users\\rodolfo.cancino\\Desktop\\DemoFrameworkBootCamp\\src\\test\\resources\\data\\Data.xlsx");
+            file = new FileInputStream(PropertiesDriven.getProperty("rutaExcel"));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -48,7 +48,7 @@ public class DataDriven {
         //bucle para iterar en las hojas
         for(int i=0; i < sheets;i++){
             //verificaremos la hoja a trabajar en base al nombre de esta.
-            if(excel.getSheetName(i).equalsIgnoreCase("DataPruebas")){
+            if(excel.getSheetName(i).equalsIgnoreCase(PropertiesDriven.getProperty("HojaCPs"))){
                 //encontre la Hoja
 
                 //Instanciar la hoja del excel encontrada
@@ -71,7 +71,7 @@ public class DataDriven {
                     //se intancia una celda
                     Cell celdaSeleccionada = celdas.next();
                     //System.out.println(celda.getStringCellValue());
-                    if(celdaSeleccionada.getStringCellValue().equalsIgnoreCase("CasosDePrueba")){
+                    if(celdaSeleccionada.getStringCellValue().equalsIgnoreCase(PropertiesDriven.getProperty("tituloCPs"))){
                         columna = k;
                     }
                     k++;

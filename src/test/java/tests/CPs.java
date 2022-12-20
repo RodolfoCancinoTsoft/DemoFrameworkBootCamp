@@ -9,6 +9,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
 import utils.DataDriven;
+import utils.PropertiesDriven;
 
 import java.util.ArrayList;
 
@@ -27,10 +28,14 @@ public class CPs {
     private HomePage homePage;
     private RegisterPage registerPage;
     private WebDriver driver;
-    private String browser = "CHROME";
-    private String propertyDriver = "webdriver.chrome.driver";
-    private String urlDriver = System.getProperty("user.dir")+"\\src\\test\\resources\\drivers\\chromedriver.exe";
-    private String url = "https://open.spotify.com/";
+
+    /*############################################################*/
+    /*PROPERTIS SE DEBEN PARAMETRIZAR*/
+    private String browser = PropertiesDriven.getProperty("browser");
+    private String propertyDriver = PropertiesDriven.getProperty("propertyDriver");
+    private String urlDriver = PropertiesDriven.getProperty("urlDriver");
+    private String url = PropertiesDriven.getProperty("url");
+    /*#############################################################*/
     private ArrayList<String> data;
 
     @BeforeMethod
@@ -56,7 +61,7 @@ public class CPs {
 
     @Test
     public void CP001_Registro_Fallido_Captcha_En_Blacno(){
-        data = DataDriven.getData("CP001_Registro_Fallido_Captcha_En_Blacno");
+        data = DataDriven.getData(PropertiesDriven.getProperty("CP001"));
         homePage.irARegistrarse();
         registerPage.completarFormularioRegistro(data.get(1),
                 data.get(2),
