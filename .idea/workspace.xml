@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26912933-a1bf-434f-bcc5-23f6fd330f8d" name="Changes" comment="se agrega al proyecto metodos de conecion al driver se agrega el testng">
-      <change afterPath="$PROJECT_DIR$/src/test/java/utils/DataDriven.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/data/Data.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/tests/CPs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/tests/CPs.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/data/Data.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/data/Data.xlsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,8 +49,8 @@
       <recent name="C:\Users\rodolfo.cancino\Desktop\DemoFrameworkBootCamp\src\test\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.CPs.CP010_Inicio_Seccion_Telefono_Xpath">
-    <configuration name="CPs.CP006_Tipos_Pruebas_Xpath_Buscar_Por_Artista" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.CPs.CP001_Registro_Fallido_Captcha_En_Blacno">
+    <configuration name="CPs.CP001_Registro_Fallido_Captcha_En_Blacno" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="DemoFrameworkBootCamp" />
       <extension name="coverage">
         <pattern>
@@ -60,7 +60,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.CPs" />
-      <option name="METHOD_NAME" value="CP006_Tipos_Pruebas_Xpath_Buscar_Por_Artista" />
+      <option name="METHOD_NAME" value="CP001_Registro_Fallido_Captcha_En_Blacno" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -142,11 +142,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.CPs.CP001_Registro_Fallido_Captcha_En_Blacno" />
         <item itemvalue="TestNG.CPs.CP010_Inicio_Seccion_Telefono_Xpath" />
         <item itemvalue="TestNG.CPs.CP009_Inicio_Seccion_Google_Xpath" />
         <item itemvalue="TestNG.CPs.CP008_Inicio_Seccion_Apple_Xpath" />
         <item itemvalue="TestNG.CPs.CP007_Inicio_Seccion_Facebook_Xpath" />
-        <item itemvalue="TestNG.CPs.CP006_Tipos_Pruebas_Xpath_Buscar_Por_Artista" />
       </list>
     </recent_temporary>
   </component>

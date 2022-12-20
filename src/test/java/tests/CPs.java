@@ -8,6 +8,9 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import pages.*;
+import utils.DataDriven;
+
+import java.util.ArrayList;
 
 public class CPs {
     //Atributos
@@ -28,12 +31,14 @@ public class CPs {
     private String propertyDriver = "webdriver.chrome.driver";
     private String urlDriver = System.getProperty("user.dir")+"\\src\\test\\resources\\drivers\\chromedriver.exe";
     private String url = "https://open.spotify.com/";
+    private ArrayList<String> data;
 
     @BeforeMethod
     public void preparacionTests(){
 
-        buscarPage = new BuscarPage(driver);
+        data = new ArrayList<String>();// Array de tamaño 0
 
+        buscarPage = new BuscarPage(driver);
 
         homePage = new HomePage(driver);
         homePage.conexionBrowser(browser,propertyDriver,urlDriver);
@@ -51,16 +56,17 @@ public class CPs {
 
     @Test
     public void CP001_Registro_Fallido_Captcha_En_Blacno(){
+        data = DataDriven.getData("CP001_Registro_Fallido_Captcha_En_Blacno");
         homePage.irARegistrarse();
-        registerPage.completarFormularioRegistro("rodo@htomail.com",
-                "rodo@htomail.com",
-                "123456",
-                "rodo",
-                "9",
-                "Julio",
-                "1990");
+        registerPage.completarFormularioRegistro(data.get(1),
+                data.get(2),
+                data.get(3),
+                data.get(4),
+                data.get(5),
+                data.get(6),
+                data.get(7));
 
-        Assert.assertEquals(registerPage.obtenerErrorCaptchaVacio(),"Confirma que no eres un robot.");
+        Assert.assertEquals(registerPage.obtenerErrorCaptchaVacio(),data.get(8));
     }
 
     @Test
